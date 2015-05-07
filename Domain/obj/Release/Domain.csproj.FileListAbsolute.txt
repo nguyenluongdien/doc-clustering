@@ -1,0 +1,4 @@
+D:\Study Project\Advanced Data Mining\DocClustering\Domain\bin\Release\Domain.dll
+D:\Study Project\Advanced Data Mining\DocClustering\Domain\bin\Release\Domain.pdb
+D:\Study Project\Advanced Data Mining\DocClustering\Domain\obj\Release\Domain.dll
+D:\Study Project\Advanced Data Mining\DocClustering\Domain\obj\Release\Domain.pdb

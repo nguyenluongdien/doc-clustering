@@ -1,0 +1,5 @@
+D:\Study Project\Advanced Data Mining\DocClustering\Application\obj\Debug\Application.csprojResolveAssemblyReference.cache
+D:\Study Project\Advanced Data Mining\DocClustering\Application\obj\Debug\Application.Form1.resources
+D:\Study Project\Advanced Data Mining\DocClustering\Application\obj\Debug\Application.Properties.Resources.resources
+D:\Study Project\Advanced Data Mining\DocClustering\Application\obj\Debug\Application.csproj.GenerateResource.Cache
+D:\Study Project\Advanced Data Mining\DocClustering\Application\obj\Debug\DocClustering.Form1.resources

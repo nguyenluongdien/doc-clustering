@@ -1,0 +1,10 @@
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Domain\bin\Debug\Domain.dll
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Domain\bin\Debug\Domain.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Domain\obj\Debug\Domain.dll
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Domain\obj\Debug\Domain.pdb
+D:\Study Project\Advanced Data Mining\DocClustering\Domain\bin\Debug\Domain.dll
+D:\Study Project\Advanced Data Mining\DocClustering\Domain\bin\Debug\Domain.pdb
+D:\Study Project\Advanced Data Mining\DocClustering\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
+D:\Study Project\Advanced Data Mining\DocClustering\Domain\obj\Debug\Domain.dll
+D:\Study Project\Advanced Data Mining\DocClustering\Domain\obj\Debug\Domain.pdb

@@ -1,0 +1,7 @@
+D:\Study Project\Advanced Data Mining\DocClustering\Preprocessing\bin\Release\Preprocessing.dll
+D:\Study Project\Advanced Data Mining\DocClustering\Preprocessing\bin\Release\Preprocessing.pdb
+D:\Study Project\Advanced Data Mining\DocClustering\Preprocessing\bin\Release\Domain.dll
+D:\Study Project\Advanced Data Mining\DocClustering\Preprocessing\bin\Release\Domain.pdb
+D:\Study Project\Advanced Data Mining\DocClustering\Preprocessing\obj\Release\Preprocessing.csprojResolveAssemblyReference.cache
+D:\Study Project\Advanced Data Mining\DocClustering\Preprocessing\obj\Release\Preprocessing.dll
+D:\Study Project\Advanced Data Mining\DocClustering\Preprocessing\obj\Release\Preprocessing.pdb
