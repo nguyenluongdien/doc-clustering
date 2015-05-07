@@ -14,7 +14,7 @@ namespace Preprocessing
         private static List<string> keywords;
         //private static Regex r = new Regex("([ \\t{}()\",:;. \n])");
 
-        public static List<DocVector> collectionProcessing(DocCollection collection, int M)
+        private static List<DocVector> collectionProcessing(DocCollection collection, int M)
         {
             Dictionary<string, int>  globalTerms = new Dictionary<string, int>();            
             
@@ -95,6 +95,10 @@ namespace Preprocessing
         }
 
         // Extract and store features
-        //public static void extractFeatures(string folderPath, string output);
+        public static void extractFeatures(string folderPath, string output = "articles.feat")
+        {
+
+        }
+        // Construct list of keywords, store vector space model
     }
 }

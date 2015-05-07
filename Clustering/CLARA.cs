@@ -6,7 +6,7 @@ using Domain;
 
 namespace Clustering
 {
-    public class Kmedoids
+    public class CLARA
     {
         private static int globalCounter = 0;
         private static int counter;
@@ -28,7 +28,7 @@ namespace Clustering
             /*
              * Generate random centroid
              * Avoid repeation of random number, if same no is generated more than once same document is added to the next cluster 
-             * so avoid it using HasSet collection
+             * so avoid it using HashSet collection
              */
             HashSet<int> uniqRand = new HashSet<int>();
             GenerateRandomNumber(ref uniqRand, k, documentCollection.Count);

@@ -6,3 +6,9 @@ D:\Study Project\Advanced Data Mining\DocClustering\Application\bin\Debug\Applic
 D:\Study Project\Advanced Data Mining\DocClustering\Application\obj\Debug\AppUI.Form1.resources
 D:\Study Project\Advanced Data Mining\DocClustering\Application\obj\Debug\Application.exe
 D:\Study Project\Advanced Data Mining\DocClustering\Application\obj\Debug\Application.pdb
+D:\Study Project\Advanced Data Mining\DocClustering\Application\bin\Debug\Clustering.dll
+D:\Study Project\Advanced Data Mining\DocClustering\Application\bin\Debug\Preprocessing.dll
+D:\Study Project\Advanced Data Mining\DocClustering\Application\bin\Debug\Domain.dll
+D:\Study Project\Advanced Data Mining\DocClustering\Application\bin\Debug\Clustering.pdb
+D:\Study Project\Advanced Data Mining\DocClustering\Application\bin\Debug\Preprocessing.pdb
+D:\Study Project\Advanced Data Mining\DocClustering\Application\bin\Debug\Domain.pdb
