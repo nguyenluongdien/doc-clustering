@@ -9,10 +9,17 @@ namespace Domain
     {
         private float[] tf_idf; // vector of tf-idf coefficents
 
+        public DocVector(int M)
+        {
+            tf_idf = new float[M];
+        }
+
         public float[] Tf_idf
         {
             get { return tf_idf; }
             set { tf_idf = value; }
         }
+
+
     }
 }

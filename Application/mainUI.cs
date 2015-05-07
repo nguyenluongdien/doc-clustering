@@ -30,8 +30,7 @@ namespace AppUI
         {
             if (fbdDataFolder.ShowDialog() == DialogResult.OK)
             {
-                selectedFolder = fbdDataFolder.SelectedPath;
-                Console.WriteLine(selectedFolder);
+                selectedFolder = fbdDataFolder.SelectedPath;                
             }
         }
 
@@ -39,7 +38,9 @@ namespace AppUI
         {
             // Preprocessing
             taskName.Text = "Preprocessing";
-            //Preprocessing.VectorSpaceModel.extractFeatures(selectedFolder);
+            Preprocessing.VectorSpaceModel.extractFeatures(selectedFolder, 10);
+            MessageBox.Show("Preprocessing complete.");
+
             /* Show statistics information */
 
             // Clustering            

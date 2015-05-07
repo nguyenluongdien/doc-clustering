@@ -21,7 +21,7 @@ namespace Preprocessing
             p_word = p_word.ToLower();
 
             // Strip punctuation, etc. Keep ' and . for URLs and contractions.
-            if (p_word.Substring(p_word.Length - 2) == "'s")
+            if ((p_word.Length > 2) && (p_word.Substring(p_word.Length - 2) == "'s"))
             {
                 p_word = p_word.Substring(0, p_word.Length - 2);
             }
@@ -77,9 +77,12 @@ namespace Preprocessing
             //}                                    
             foreach (string item in p_words)
             {
-                string result = this.stem(item);
-                if (result != "")
-                    results.Add(result);
+                if (item.Length >= 2)
+                {
+                    string result = this.stem(item);
+                    if (result != "")
+                        results.Add(result);
+                }
             }            
 
             return results.ToArray();
@@ -118,7 +121,7 @@ namespace Preprocessing
                 }
             }
             // Step 1b
-            if (p_word.Substring(p_word.Length - 3) == "eed")
+            if ((p_word.Length > 3) && (p_word.Substring(p_word.Length - 3) == "eed"))
             {
                 if (this.count_vc(p_word.Substring(0, p_word.Length - 3)) > 0)
                 {
@@ -139,12 +142,12 @@ namespace Preprocessing
                     {
                         p_word = p_word.Substring(0, p_word.Length - 3);
                     }
-                    if (p_word.Substring(p_word.Length - 2) == "at" || p_word.Substring(p_word.Length - 2) == "bl" ||
-                         p_word.Substring(p_word.Length - 2) == "iz")
+                    if ((p_word.Length > 2) && (p_word.Substring(p_word.Length - 2) == "at" || p_word.Substring(p_word.Length - 2) == "bl" ||
+                         p_word.Substring(p_word.Length - 2) == "iz"))
                     {
                         p_word += "e";
                     }
-                    else
+                    else if (p_word.Length > 1)
                     {
                         string last_char = p_word.Substring(p_word.Length - 1, 1);
                         string next_to_last = p_word.Substring(p_word.Length - 2, 1);
@@ -168,7 +171,7 @@ namespace Preprocessing
             }
             // Step 1c
             // Turn y into i when another vowel in stem
-            if (Regex.IsMatch("/([aeiou]|[^aeiou]y).*y$/", p_word))
+            if ((p_word.Length > 1) && (Regex.IsMatch("/([aeiou]|[^aeiou]y).*y$/", p_word)))
             { // vowel in stem
                 p_word = p_word.Substring(0, p_word.Length - 1) + "i";
             }
@@ -194,116 +197,119 @@ namespace Preprocessing
          */
         private string Step2(string p_word)
         {
-            switch (p_word.Substring(p_word.Length - 2, 1))
+            if (p_word.Length > 2)
             {
-                case "a":
-                    if (this.ReplaceSuffix(ref p_word, "ational", "ate", 0))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "tional", "tion", 0))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "c":
-                    if (this.ReplaceSuffix(ref p_word, "enci", "ence", 0))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "anci", "ance", 0))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "e":
-                    if (this.ReplaceSuffix(ref p_word, "izer", "ize", 0))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "l":
-                    // This condition is a departure from the original algorithm;
-                    // I adapted it from the departure in the ANSI-C version.
-                    if (this.ReplaceSuffix(ref p_word, "bli", "ble", 0))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "alli", "al", 0))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "entli", "ent", 0))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "eli", "e", 0))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "ousli", "ous", 0))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "o":
-                    if (this.ReplaceSuffix(ref p_word, "ization", "ize", 0))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "isation", "ize", 0))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "ation", "ate", 0))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "ator", "ate", 0))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "s":
-                    if (this.ReplaceSuffix(ref p_word, "alism", "al", 0))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "iveness", "ive", 0))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "fulness", "ful", 0))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "ousness", "ous", 0))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "t":
-                    if (this.ReplaceSuffix(ref p_word, "aliti", "al", 0))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "iviti", "ive", 0))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "biliti", "ble", 0))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "g":
-                    // This condition is a departure from the original algorithm;
-                    // I adapted it from the departure in the ANSI-C version.
-                    if (this.ReplaceSuffix(ref p_word, "logi", "log", 0))
-                    { //*****
-                        return p_word;
-                    }
-                    break;
+                switch (p_word.Substring(p_word.Length - 2, 1))
+                {
+                    case "a":
+                        if (this.ReplaceSuffix(ref p_word, "ational", "ate", 0))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "tional", "tion", 0))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "c":
+                        if (this.ReplaceSuffix(ref p_word, "enci", "ence", 0))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "anci", "ance", 0))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "e":
+                        if (this.ReplaceSuffix(ref p_word, "izer", "ize", 0))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "l":
+                        // This condition is a departure from the original algorithm;
+                        // I adapted it from the departure in the ANSI-C version.
+                        if (this.ReplaceSuffix(ref p_word, "bli", "ble", 0))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "alli", "al", 0))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "entli", "ent", 0))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "eli", "e", 0))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "ousli", "ous", 0))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "o":
+                        if (this.ReplaceSuffix(ref p_word, "ization", "ize", 0))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "isation", "ize", 0))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "ation", "ate", 0))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "ator", "ate", 0))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "s":
+                        if (this.ReplaceSuffix(ref p_word, "alism", "al", 0))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "iveness", "ive", 0))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "fulness", "ful", 0))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "ousness", "ous", 0))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "t":
+                        if (this.ReplaceSuffix(ref p_word, "aliti", "al", 0))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "iviti", "ive", 0))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "biliti", "ble", 0))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "g":
+                        // This condition is a departure from the original algorithm;
+                        // I adapted it from the departure in the ANSI-C version.
+                        if (this.ReplaceSuffix(ref p_word, "logi", "log", 0))
+                        { //*****
+                            return p_word;
+                        }
+                        break;
+                }
             }
             return p_word;
         }
@@ -320,44 +326,47 @@ namespace Preprocessing
          */
         private string Step3(string p_word)
         {
-            switch (p_word.Substring(p_word.Length - 1))
+            if (p_word.Length > 1)
             {
-                case "e":
-                    if (this.ReplaceSuffix(ref p_word, "icate", "ic", 0))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "ative", "", 0))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "alize", "al", 0))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "i":
-                    if (this.ReplaceSuffix(ref p_word, "iciti", "ic", 0))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "l":
-                    if (this.ReplaceSuffix(ref p_word, "ical", "ic", 0))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "ful", "", 0))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "s":
-                    if (this.ReplaceSuffix(ref p_word, "ness", "", 0))
-                    {
-                        return p_word;
-                    }
-                    break;
+                switch (p_word.Substring(p_word.Length - 1))
+                {
+                    case "e":
+                        if (this.ReplaceSuffix(ref p_word, "icate", "ic", 0))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "ative", "", 0))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "alize", "al", 0))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "i":
+                        if (this.ReplaceSuffix(ref p_word, "iciti", "ic", 0))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "l":
+                        if (this.ReplaceSuffix(ref p_word, "ical", "ic", 0))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "ful", "", 0))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "s":
+                        if (this.ReplaceSuffix(ref p_word, "ness", "", 0))
+                        {
+                            return p_word;
+                        }
+                        break;
+                }
             }
             return p_word;
         }
@@ -375,113 +384,117 @@ namespace Preprocessing
          */
         private string Step4(string p_word)
         {
-            switch (p_word.Substring(p_word.Length - 2, 1))
+            if (p_word.Length > 2)
             {
-                case "a":
-                    if (this.ReplaceSuffix(ref p_word, "al", "", 1))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "c":
-                    if (this.ReplaceSuffix(ref p_word, "ance", "", 1))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "ence", "", 1))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "e":
-                    if (this.ReplaceSuffix(ref p_word, "er", "", 1))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "i":
-                    if (this.ReplaceSuffix(ref p_word, "ic", "", 1))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "l":
-                    if (this.ReplaceSuffix(ref p_word, "able", "", 1))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "ible", "", 1))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "n":
-                    if (this.ReplaceSuffix(ref p_word, "ant", "", 1))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "ement", "", 1))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "ment", "", 1))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "ent", "", 1))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "o":
-                    // special cases
-                    if (p_word.Substring(p_word.Length - 4) == "sion" || p_word.Substring(p_word.Length - 4) == "tion")
-                    {
-                        if (this.ReplaceSuffix(ref p_word, "ion", "", 1))
+                switch (p_word.Substring(p_word.Length - 2, 1))
+                {
+                    case "a":
+                        if (this.ReplaceSuffix(ref p_word, "al", "", 1))
                         {
                             return p_word;
                         }
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "ou", "", 1))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "s":
-                    if (this.ReplaceSuffix(ref p_word, "ism", "", 1))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "t":
-                    if (this.ReplaceSuffix(ref p_word, "ate", "", 1))
-                    {
-                        return p_word;
-                    }
-                    if (this.ReplaceSuffix(ref p_word, "iti", "", 1))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "u":
-                    if (this.ReplaceSuffix(ref p_word, "ous", "", 1))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "v":
-                    if (this.ReplaceSuffix(ref p_word, "ive", "", 1))
-                    {
-                        return p_word;
-                    }
-                    break;
-                case "z":
-                    if (this.ReplaceSuffix(ref p_word, "ize", "", 1))
-                    {
-                        return p_word;
-                    }
-                    break;
+                        break;
+                    case "c":
+                        if (this.ReplaceSuffix(ref p_word, "ance", "", 1))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "ence", "", 1))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "e":
+                        if (this.ReplaceSuffix(ref p_word, "er", "", 1))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "i":
+                        if (this.ReplaceSuffix(ref p_word, "ic", "", 1))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "l":
+                        if (this.ReplaceSuffix(ref p_word, "able", "", 1))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "ible", "", 1))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "n":
+                        if (this.ReplaceSuffix(ref p_word, "ant", "", 1))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "ement", "", 1))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "ment", "", 1))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "ent", "", 1))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "o":
+                        // special cases
+                        if ((p_word.Length > 4) && (p_word.Substring(p_word.Length - 4) == "sion" || p_word.Substring(p_word.Length - 4) == "tion"))
+                        {
+                            if (this.ReplaceSuffix(ref p_word, "ion", "", 1))
+                            {
+                                return p_word;
+                            }
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "ou", "", 1))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "s":
+                        if (this.ReplaceSuffix(ref p_word, "ism", "", 1))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "t":
+                        if (this.ReplaceSuffix(ref p_word, "ate", "", 1))
+                        {
+                            return p_word;
+                        }
+                        if (this.ReplaceSuffix(ref p_word, "iti", "", 1))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "u":
+                        if (this.ReplaceSuffix(ref p_word, "ous", "", 1))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "v":
+                        if (this.ReplaceSuffix(ref p_word, "ive", "", 1))
+                        {
+                            return p_word;
+                        }
+                        break;
+                    case "z":
+                        if (this.ReplaceSuffix(ref p_word, "ize", "", 1))
+                        {
+                            return p_word;
+                        }
+                        break;
+                }
             }
+
             return p_word;
         }
 
@@ -497,7 +510,7 @@ namespace Preprocessing
          */
         private string Step5(string p_word)
         {
-            if (p_word.Substring(p_word.Length - 1) == "e")
+            if ((p_word.Length > 1) && (p_word.Substring(p_word.Length - 1) == "e"))
             {
                 string shortword = p_word.Substring(0, p_word.Length - 1);
                 // Only remove in vcvc context...
@@ -510,7 +523,7 @@ namespace Preprocessing
                     p_word = shortword;
                 }
             }
-            if (p_word.Substring(p_word.Length - 2) == "ll")
+            if ((p_word.Length > 2) && (p_word.Substring(p_word.Length - 2) == "ll"))
             {
                 // Only remove in vcvc context...
                 if (this.count_vc(p_word) > 1)
@@ -555,7 +568,7 @@ namespace Preprocessing
                     p_pos = -1;
                 }
             }
-            string charpos = p_word.Substring(p_pos, 1);
+            string charpos = p_word.Substring(Math.Abs(p_pos), 1);
             switch (charpos)
             {
                 case "a":

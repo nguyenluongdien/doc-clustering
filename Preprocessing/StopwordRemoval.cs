@@ -9,9 +9,10 @@ namespace Preprocessing
     public class StopwordRemoval
     {
         //static char[] _delims = new char[] {' ', ',', ';', '.', }; // Delimiters
-        private static Regex regex = new Regex("([ \\t{}()\",:;. \n])");
+        private static Regex regex = new Regex("([\\t{}()\",:;. \n])");
         /*static char[] _spchars = new char[] {'~', '!', '@', '#', '$', '%', '^', '&', '*', 
                                             '(', ')', '{', '}', '?'}; // Special characters */
+        static char[] _delimiters = new char[] {'(', '[', '\\', '\t', '{', '}', '(', ')', '"', ',', ':', ';', '.', ' ', '\n', ']', ')'};
         static Dictionary<string, bool> _stopwords = new Dictionary<string, bool> 
         {
             { "a", true },
@@ -336,7 +337,8 @@ namespace Preprocessing
         {
             //string[] words = input.Split(_delims, StringSplitOptions.RemoveEmptyEntries);            
             // Remove special characters and split string into words            
-            string[] words = regex.Split(input.ToLower());
+            //string[] words = regex.Split(input.ToLower());
+            string[] words = input.Split(_delimiters, StringSplitOptions.RemoveEmptyEntries);            
 
             // Allocate new dictionary to store found words
             List<string> filtered_words = new List<string>();  
@@ -346,7 +348,7 @@ namespace Preprocessing
                 // Convert to lowercase
                 string lowerWord = word.ToLower();                
                 // If this is a usable word, add it
-                if (!_stopwords.ContainsKey(lowerWord))
+                if ((lowerWord != "") && (lowerWord != " ") && (!_stopwords.ContainsKey(lowerWord)))
                 {
                     filtered_words.Add(lowerWord);
                 }

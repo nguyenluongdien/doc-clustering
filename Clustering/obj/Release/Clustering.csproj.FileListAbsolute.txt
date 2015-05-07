@@ -1,1 +1,7 @@
 D:\Study Project\Advanced Data Mining\DocClustering\Clustering\obj\Release\Clustering.csprojResolveAssemblyReference.cache
+D:\Study Project\Advanced Data Mining\DocClustering\Clustering\bin\Release\Clustering.dll
+D:\Study Project\Advanced Data Mining\DocClustering\Clustering\bin\Release\Clustering.pdb
+D:\Study Project\Advanced Data Mining\DocClustering\Clustering\bin\Release\Domain.dll
+D:\Study Project\Advanced Data Mining\DocClustering\Clustering\bin\Release\Domain.pdb
+D:\Study Project\Advanced Data Mining\DocClustering\Clustering\obj\Release\Clustering.dll
+D:\Study Project\Advanced Data Mining\DocClustering\Clustering\obj\Release\Clustering.pdb

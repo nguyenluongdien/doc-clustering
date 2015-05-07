@@ -38,13 +38,13 @@
             this.txtNumClusters = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.btnSelectFolder = new System.Windows.Forms.Button();
             this.fbdDataFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.bgWorker = new System.ComponentModel.BackgroundWorker();
             this.completedPert = new System.Windows.Forms.Label();
             this.taskName = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -149,6 +149,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Statistics";
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(6, 19);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(258, 111);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = "";
+            // 
             // btnSelectFolder
             // 
             this.btnSelectFolder.Location = new System.Drawing.Point(12, 169);
@@ -158,6 +166,10 @@
             this.btnSelectFolder.Text = "Select folder";
             this.btnSelectFolder.UseVisualStyleBackColor = true;
             this.btnSelectFolder.Click += new System.EventHandler(this.btnSelectFolder_Click);
+            // 
+            // fbdDataFolder
+            // 
+            this.fbdDataFolder.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
             // progressBar
             // 
@@ -190,14 +202,6 @@
             this.taskName.Size = new System.Drawing.Size(70, 16);
             this.taskName.TabIndex = 6;
             this.taskName.Text = "taskName";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(6, 19);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(258, 111);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
             // 
             // Form1
             // 

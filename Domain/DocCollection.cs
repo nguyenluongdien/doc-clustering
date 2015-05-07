@@ -9,6 +9,11 @@ namespace Domain
     {
         private List<string> rawDocs; // Collection of raw documents
 
+        public DocCollection()
+        {
+            rawDocs = new List<string>();
+        }
+        
         public List<string> RawDocs
         {
             get { return rawDocs; }
