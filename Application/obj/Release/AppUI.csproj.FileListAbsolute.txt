@@ -12,3 +12,17 @@ D:\Study Project\Advanced Data Mining\DocClustering\Application\obj\Release\Appl
 D:\Study Project\Advanced Data Mining\DocClustering\Application\obj\Release\AppUI.csproj.GenerateResource.Cache
 D:\Study Project\Advanced Data Mining\DocClustering\Application\obj\Release\Application.exe
 D:\Study Project\Advanced Data Mining\DocClustering\Application\obj\Release\Application.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\obj\Release\Application.exe
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\obj\Release\Application.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\bin\Release\Application.exe
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\bin\Release\Application.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\bin\Release\Clustering.dll
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\bin\Release\Preprocessing.dll
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\bin\Release\Domain.dll
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\bin\Release\Clustering.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\bin\Release\Preprocessing.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\bin\Release\Domain.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\obj\Release\AppUI.csprojResolveAssemblyReference.cache
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\obj\Release\AppUI.Form1.resources
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\obj\Release\Application.Properties.Resources.resources
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\obj\Release\AppUI.csproj.GenerateResource.Cache

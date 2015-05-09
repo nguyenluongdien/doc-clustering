@@ -5,3 +5,10 @@ D:\Study Project\Advanced Data Mining\DocClustering\Clustering\bin\Release\Domai
 D:\Study Project\Advanced Data Mining\DocClustering\Clustering\bin\Release\Domain.pdb
 D:\Study Project\Advanced Data Mining\DocClustering\Clustering\obj\Release\Clustering.dll
 D:\Study Project\Advanced Data Mining\DocClustering\Clustering\obj\Release\Clustering.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Clustering\bin\Release\Clustering.dll
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Clustering\bin\Release\Clustering.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Clustering\bin\Release\Domain.dll
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Clustering\bin\Release\Domain.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Clustering\obj\Release\Clustering.csprojResolveAssemblyReference.cache
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Clustering\obj\Release\Clustering.dll
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Clustering\obj\Release\Clustering.pdb
