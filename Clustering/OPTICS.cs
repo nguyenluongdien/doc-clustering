@@ -7,7 +7,7 @@ namespace Clustering
 {
     public class OPTICS
     {
-        public void Run(List<Object> setOfObject,int eps, int MinPts)
+        public void OPTICS(List<Object> setOfObject,int eps, int MinPts)
         {
             int n = setOfOject.Count;
             for(int i = 0; i < n; i++)
@@ -25,13 +25,25 @@ namespace Clustering
 
             if(obj.coreDist != 0)
             {
+                // Tạo Seed mới
+                Seeds seeds = new Seeds();
+                updateSeeds(lstNeighbor, obj, seeds, eps, MinPts);
 
+                foreach (Object objNeighbor in seeds.LstSeeds)
+                {
+                    List<Object> lstNeiborOfObjNeighbor = objNeighbor.getNeighbor(setOfObject, eps);
+                    objNeighbor.process = true;
+                    if(objNeighbor.coreDist != 0)
+                    {
+                        updateSeeds(lstNeiborOfObjNeighbor, objNeighbor, seeds, eps,MinPts);
+                    }
+                }
             }
         }
 
-        private updateSeeds(List<Object> lstNeighbor, Object centreObj)
+        private void updateSeeds(List<Object> lstNeighbor, Object centreObj, Seeds seeds, int eps, int MinPts)
         {
-            float coreDist = centreObject.coreDist;
+            float coreDist = centreObject.setCoreDist();
             int num = lstNeighbor.Count;
             for(int i = 0; i < num; i++)
             {
@@ -44,14 +56,17 @@ namespace Clustering
                     if(obj.coreReachibility == -1)
                     {
                         obj.coreReachibility = tempCoreReach;
+                        seeds.Insert(obj);
                     }
                     else
-                    {
-
-                    }
+                        if (tempCoreReach < obj.coreReachibility)
+                        {
+                            seeds.moveup(obj, tempCoreReach);
+                        }
                 }
             }
         }
+
     }
 
 
@@ -65,6 +80,11 @@ namespace Clustering
         // Đọc file lên lấy property ra làm luôn.
         public int[] Vector;
         public int NumKey;
+
+        public Object()
+        {
+
+        }
 
         void setCoreDist(List<Object> neibor, int Eps, int MinPts)
         {
@@ -92,12 +112,40 @@ namespace Clustering
         }
     }
 
-    // Lớp như 1 queue chứa các Object được sắp ưu tiên theo core-reachibility
-    private class OtherSeeds
+    private class Seeds
     {
-        public void UpdateSeed(Danh_sach_lang_gieng, Object obj)
-        {
+        public List<Object> LstSeeds;
 
+        public Seeds(){
+            LstSeeds = new List<Object>();
+        }
+
+        public void Insert(Object obj)
+        {
+            int ind = 0;
+            foreach(Object objTemp in LstSeeds)
+            {
+                ind++;
+                if (objTemp.coreReachibility > obj.coreReachibility)
+                {
+                    LstSeeds.Insert(ind, obj);
+                    break;
+                }
+            }
+        }
+
+        public void moveup(Object obj, float tempCoreReach)
+        {
+            int ind = LstSeeds.IndexOf(obj);
+            foreach (Object objTemp in LstSeeds)
+            {
+                //ind++;
+                //if (objTemp.coreReachibility > obj.coreReachibility)
+                //{
+                //    LstSeeds.Insert(ind, obj);
+                //    break;
+                //}
+            }
         }
     }
 }
