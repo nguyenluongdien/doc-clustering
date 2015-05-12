@@ -7,27 +7,67 @@ namespace Clustering
 {
     public class OPTICS
     {
-        public void OPTICS(List<Object> setOfObject,int eps, int MinPts)
+        const int numObject = 500;
+        double[,] matrixDistance = new double[numObject, numObject];
+        List<Object> setOfObject;
+        int eps;
+        int minPts;
+
+        public OPTICS(List<List<double>> lstMatrix, int eps, int minPts)
+        {
+            this.eps = eps;
+            this.minPts = minPts;
+            List<Object> setOfObject = new List<Object>();
+
+            int n = lstMatrix.Count;
+            for (int i = 0; i < n; i++)
+            {
+                matrixDistance[i][i] = 0.0;
+                setOfObject.Add(new Object(i));
+
+                for(int j  = 0; j < i; j++)
+                {
+                    if(matrixDistance[i][j] <= eps)
+                    {
+                        setOfObject[i].lstNeighbor.Add(setOfObject[j]);
+                    }
+                }
+
+                for (int j = i + 1; j < n; j++)
+                {
+                    double res = distance(lstMatrix[i], lstMatrix[j]);
+                    matrixDistance[i][j] = res;
+                    matrixDistance[j][i] = res;
+                    if(res <= eps)
+                    {
+                        setOfObject[i].lstNeighbor.Add(setOfObject[j]);
+                    }
+
+                }
+            }
+        }
+
+        public void Run(List<Object> setOfObject)
         {
             int n = setOfOject.Count;
             for(int i = 0; i < n; i++)
             {
                 Object obj = setOfObject[i];
-                ExpandCluster(setOfObject, obj, eps, MinPts);
+                ExpandCluster(setOfObject, obj);
             }
         }
         
-        private void ExpandCluster(List<Object> setOfObject, Object obj,int eps, int MinPts)
+        private void ExpandCluster(List<Object> setOfObject, Object obj)
         {
             List<Object> lstNeighbor = obj.getNeighbor(setOfObject, eps);
             obj.process = true;
-            obj.setCoreDist(lstNeighbor, eps, MinPts);
+            obj.setCoreDist(matrixDistance, eps, MinPts);
 
             if(obj.coreDist != 0)
             {
                 // Tạo Seed mới
                 Seeds seeds = new Seeds();
-                updateSeeds(lstNeighbor, obj, seeds, eps, MinPts);
+                updateSeeds(lstNeighbor, obj, seeds);
 
                 foreach (Object objNeighbor in seeds.LstSeeds)
                 {
@@ -41,7 +81,7 @@ namespace Clustering
             }
         }
 
-        private void updateSeeds(List<Object> lstNeighbor, Object centreObj, Seeds seeds, int eps, int MinPts)
+        private void updateSeeds(List<Object> lstNeighbor, Object centreObj, Seeds seeds)
         {
             float coreDist = centreObject.setCoreDist();
             int num = lstNeighbor.Count;
@@ -50,7 +90,7 @@ namespace Clustering
                 Object obj = lstNeighbor[i];
                 if(!obj.process)
                 {
-                    float dist = centreObj.dist(obj);
+                    float dist = centreObj.distance(obj);
                     float tempCoreReach = dist > coreDist ? dist : coreDist;
 
                     if(obj.coreReachibility == -1)
@@ -66,53 +106,52 @@ namespace Clustering
                 }
             }
         }
+        // Tính khoảng cách tới Object khác
+        private double distance(List<double> obj1, List<double> obj2)
+        {
+            int n = obj1.Count;
+            double res = 0;
 
+            for (int i = 0; i < n; i++)
+            {
+                double sub = obj1[i] - obj2[i];
+                if (sub < 0) sub = -sub;
+                res += sub;
+            }
+            return res;
+        }
     }
 
 
-    private class Object
+    public class Object
     {
         public float coreDist = 0; // Khoảng cách lõi. 
         public float coreReachibility = -1; // Khoảng cách tới điểm p (core-object). Giá trị -1 = UNDIFINED
         public bool process = false; // Đánh dấu đã kiểm chưa?
 
-        // Vector đặc trưng / thuoc tính bla bla
-        // Đọc file lên lấy property ra làm luôn.
-        public int[] Vector;
-        public int NumKey;
+        // Chỉ số trong ma trận khoảng cách.
+        public int index;
+        // Danh sách láng giềng.
+        public List<Object> lstNeighbor;
 
-        public Object()
+        public Object(int index)
         {
-
+            this.index = index;
+            lstNeighbor = new List<Object>();
         }
 
-        void setCoreDist(List<Object> neibor, int Eps, int MinPts)
+        public void setCoreDist(double[,] matrixDistance, int Eps, int MinPts)
         {
+            int count = 0;
+            foreach(Object obj in lstNeighbor)
+            {
+                if(matrixDistance[index][obj.index] !=)
+            }
             return 0;
-        }
-
-        // Định nghĩa hàm gán (=) giữa 2 OBject
-        void Assigned(Object obj)
-        {
-
-        }
-
-        // Tìm các láng giềng gần (trong bán kính eps)
-        List<Object> getNeighbor(List<Object> setOfObject, int eps)
-        {
-            List<Object> lstNeighbor = new List<Object>();
-
-            return lstNeighbor;
-        }
-
-        // Tính khoảng cách tới Object khác
-        float dist(Object obj)
-        {
-            return 0.0;
         }
     }
 
-    private class Seeds
+    public class Seeds
     {
         public List<Object> LstSeeds;
 
