@@ -26,7 +26,7 @@ namespace Preprocessing
              * Compute tf-idf
              */
 
-            // Chose global keywords
+            // Chose global keywords base on document frequency value
             foreach (string documentContent in collection.RawDocs)
             {
                 // Remove stopwords
@@ -64,7 +64,7 @@ namespace Preprocessing
                 int i = 0;
                 foreach (KeyValuePair<string, int> pair in keywords_df)
                 {
-                    _docVector.Tf_idf[i] = calc_tf(document, pair.Key);
+                    _docVector.Tf_idf[i] = (float)(Math.Log(collection.RawDocs.Count * 1.0 / pair.Value) * calc_tf(document, pair.Key));
                     ++i;
                     if (i >= M) 
                         break;
@@ -94,7 +94,7 @@ namespace Preprocessing
                     ++count;
 
             return (float)(count * 1.0 / words.Count());
-        }
+        }        
 
         // Extract and store features
         public static void extractFeatures(string folderPath, int M, string output = "articles.feat")
@@ -129,7 +129,6 @@ namespace Preprocessing
                     writer.WriteLine();
                 }
             }
-        }
-        // Construct list of keywords, store vector space model
+        }        
     }
 }
