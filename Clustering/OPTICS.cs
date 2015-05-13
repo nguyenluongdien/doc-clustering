@@ -101,7 +101,7 @@ namespace Clustering
                     else
                         if (tempCoreReach < obj.coreReachibility)
                         {
-                            seeds.moveup(obj, tempCoreReach);
+                            seeds.Moveup(obj, tempCoreReach);
                         }
                 }
             }
@@ -140,12 +140,16 @@ namespace Clustering
             lstNeighbor = new List<Object>();
         }
 
-        public void setCoreDist(double[,] matrixDistance, int Eps, int MinPts)
+        public void setCoreDist(double[,] matrixDistance, int eps, int MinPts)
         {
             int count = 0;
+
             foreach(Object obj in lstNeighbor)
             {
-                if(matrixDistance[index][obj.index] !=)
+                //if(matrixDistance[index][obj.index] <= eps)
+                //{
+
+                //}
             }
             return 0;
         }
@@ -173,18 +177,29 @@ namespace Clustering
             }
         }
 
-        public void moveup(Object obj, float tempCoreReach)
+        public void Moveup(Object obj, float tempCoreReach)
         {
             int ind = LstSeeds.IndexOf(obj);
-            foreach (Object objTemp in LstSeeds)
+            
+            int left = 0;
+            int right = LstSeeds.Count;
+            int pivot = (right + left) / 2;
+            //Chia để trị. Xài Pivot
+            do
             {
-                //ind++;
-                //if (objTemp.coreReachibility > obj.coreReachibility)
-                //{
-                //    LstSeeds.Insert(ind, obj);
-                //    break;
-                //}
-            }
+                if(obj.coreReachibility < LstSeeds[pivot].coreReachibility)
+                {
+                    right = pivot;
+                }
+                else if (obj.coreReachibility > LstSeeds[pivot].coreReachibility)
+                {
+                    left = pivot;
+                }
+                pivot = (right + left) / 2;
+            }while(right - left <= 1);
+
+            obj.coreReachibility = tempCoreReach;
+            LstSeeds.Insert(ind, obj);
         }
     }
 }
