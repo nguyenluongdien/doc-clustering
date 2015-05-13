@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace AppUI
 {
@@ -41,10 +42,19 @@ namespace AppUI
             Preprocessing.VectorSpaceModel.extractFeatures(selectedFolder, 10);
             MessageBox.Show("Preprocessing complete.");
 
-            /* Show statistics information */
+            
 
+            // Open file articles.feat
+            List<List<double>> matrixObj = new List<List<double>>();
+            matrixObj = openFile();
+
+
+
+
+            /* Show statistics information */
             // Clustering            
             taskName.Text = "Clustering";
+
             /* Switch case for clustering algorithms */
             switch (cbxAlg.SelectedIndex)
             {
@@ -59,6 +69,38 @@ namespace AppUI
             // Clear progress info
             taskName.Text = "";
             MessageBox.Show("Your collection is clustered.");
+        }
+
+        private List<List<double>> openFile()
+        {
+            string fileName = "articles.feat";
+            List<List<double>> matrixObj = new List<List<double>>();
+
+            using (StreamReader file = new StreamReader(fileName))
+            { 
+                string line = file.ReadLine();
+                int row = int.Parse(line);
+                line = file.ReadLine();
+                int col = int.Parse(line);
+
+                line = file.ReadLine();
+
+                for(int i = 0; i < row; i++)
+                {
+                    List<double> lstOnRow = new List<double>();
+                    line = file.ReadLine();
+                    string[] words = line.Split(' ');
+                    for (int j = 0; j < col; j++)
+                    {
+                        double dtemp = double.Parse(words[i]);
+                        lstOnRow.Add(dtemp);
+                    }
+
+                    matrixObj.Add(lstOnRow);
+                }
+
+            }
+            return matrixObj;
         }
     }
 }
