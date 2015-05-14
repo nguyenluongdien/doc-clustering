@@ -7,12 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using Domain;
+using Clustering;
 
 namespace AppUI
 {
     public partial class Form1 : Form
     {
-        private string selectedFolder;        
+        private string selectedFolder;
+        private static int N = 0;
+        private static int M = 0;
+        private static string keywords;
 
         public Form1()
         {
@@ -38,69 +43,72 @@ namespace AppUI
         private void btnExe_Click(object sender, EventArgs e)
         {
             // Preprocessing
-            taskName.Text = "Preprocessing";
-            Preprocessing.VectorSpaceModel.extractFeatures(selectedFolder, 10);
+            taskName.Text = "Preprocessing...";
+            Preprocessing.VectorSpaceModel.extractFeatures(selectedFolder, 5);
+            taskName.Text = "Preprocessing complete.";
             MessageBox.Show("Preprocessing complete.");
-
             
-
-            // Open file articles.feat
-            List<List<double>> matrixObj = new List<List<double>>();
-            matrixObj = openFile();
-
-
-
+            // Load features         
+            List<Item> data = loadFeature();
 
             /* Show statistics information */
+            statInfo.Text = "No of documents: " + N + "\n"
+                            + "No of keywords: " + M + "\n"
+                            + "List of keywords: " + keywords + "\n";            
+
             // Clustering            
             taskName.Text = "Clustering";
-
             /* Switch case for clustering algorithms */
             switch (cbxAlg.SelectedIndex)
             {
                 case 0:
-                    //Clustering.CLARA.
+                    CLARA.Clara(ref data, 5, 40 + 2 * 5);
                     break;
                 default:
                     //Clustering. OPTICS
                     break;
             }
-            
-            // Clear progress info
-            taskName.Text = "";
+
+            storeResult(data);
+            // Clear progress info            
             MessageBox.Show("Your collection is clustered.");
         }
 
-        private List<List<double>> openFile()
+        // Load feature
+        private List<Item> loadFeature(string featFile = "articles.feat")
         {
-            string fileName = "articles.feat";
-            List<List<double>> matrixObj = new List<List<double>>();
+            List<Item> dataSet = new List<Item>();
 
-            using (StreamReader file = new StreamReader(fileName))
-            { 
-                string line = file.ReadLine();
-                int row = int.Parse(line);
-                line = file.ReadLine();
-                int col = int.Parse(line);
+            dataSet.Clear();
+            using (StreamReader reader = File.OpenText(featFile))
+            {
+                N = int.Parse(reader.ReadLine()); // Read number of items
+                M = int.Parse(reader.ReadLine()); // Read number of keywords
 
-                line = file.ReadLine();
+                keywords = reader.ReadLine(); // Read keywords
 
-                for(int i = 0; i < row; i++)
+                Item tmp = new Item(M);                
+                for (int i = 0; i < N; ++i)
                 {
-                    List<double> lstOnRow = new List<double>();
-                    line = file.ReadLine();
-                    string[] words = line.Split(' ');
-                    for (int j = 0; j < col; j++)
-                    {
-                        double dtemp = double.Parse(words[i]);
-                        lstOnRow.Add(dtemp);
-                    }
+                    string[] values = reader.ReadLine().Split(' ');
+                    for (int j = 0; j < M; ++j)
+                        tmp.Vector.Tf_idf[j] = float.Parse(values[j]);
 
-                    matrixObj.Add(lstOnRow);
+                    dataSet.Add(tmp);
                 }
-
             }
-            return matrixObj;
+
+            return dataSet;
+        }        
+
+        // Store result
+        private void storeResult(List<Item> data, string resultFile = "clustering.txt")
+        {
+            using (StreamWriter writer = new StreamWriter(resultFile, false))
+            {
+                for (int i = 0; i < data.Count; ++i)
+                    writer.WriteLine(data[i].Label);
+            }
         }
     }
 }

@@ -38,7 +38,7 @@
             this.txtNumClusters = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.statInfo = new System.Windows.Forms.RichTextBox();
             this.btnSelectFolder = new System.Windows.Forms.Button();
             this.fbdDataFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.progressBar = new System.Windows.Forms.ProgressBar();
@@ -61,6 +61,7 @@
             this.cbxAlg.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cbxAlg.Size = new System.Drawing.Size(165, 21);
             this.cbxAlg.TabIndex = 0;
+            this.cbxAlg.SelectedIndex = 0;
             // 
             // btnExe
             // 
@@ -141,7 +142,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.richTextBox1);
+            this.groupBox3.Controls.Add(this.statInfo);
             this.groupBox3.Location = new System.Drawing.Point(205, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(270, 136);
@@ -149,13 +150,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Statistics";
             // 
-            // richTextBox1
+            // statInfo
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(6, 19);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(258, 111);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.statInfo.Location = new System.Drawing.Point(6, 19);
+            this.statInfo.Name = "statInfo";
+            this.statInfo.ReadOnly = true;
+            this.statInfo.Size = new System.Drawing.Size(258, 111);
+            this.statInfo.TabIndex = 0;
+            this.statInfo.Text = "";
             // 
             // btnSelectFolder
             // 
@@ -246,7 +248,7 @@
         private System.ComponentModel.BackgroundWorker bgWorker;
         private System.Windows.Forms.Label completedPert;
         private System.Windows.Forms.Label taskName;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox statInfo;
     }
 }
 

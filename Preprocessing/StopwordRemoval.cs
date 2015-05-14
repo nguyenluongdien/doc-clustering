@@ -337,8 +337,8 @@ namespace Preprocessing
         {
             //string[] words = input.Split(_delims, StringSplitOptions.RemoveEmptyEntries);            
             // Remove special characters and split string into words            
-            //string[] words = regex.Split(input.ToLower());
-            string[] words = input.Split(_delimiters, StringSplitOptions.RemoveEmptyEntries);            
+            string[] words = regex.Split(input.ToLower());
+            //string[] words = input.Split(_delimiters, StringSplitOptions.RemoveEmptyEntries);            
 
             // Allocate new dictionary to store found words
             List<string> filtered_words = new List<string>();  

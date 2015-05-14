@@ -125,6 +125,10 @@
       <Project>{e66c4e02-632e-45d1-a82b-e044ddbd7fca}</Project>
       <Name>Clustering</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{aa9a8cdb-7e47-4f71-ab85-f2322922f2e5}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Preprocessing\Preprocessing.csproj">
       <Project>{5016c934-589c-4858-83d0-9cc9eccb3a69}</Project>
       <Name>Preprocessing</Name>
