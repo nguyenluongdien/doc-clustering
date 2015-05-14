@@ -1,0 +1,7 @@
+A California robotics startup is deploying a dual robot system to speed the delivery of goods purchased online 
+San Jose based Fetch Robotics on Wednesday unveiled Fetch a mobile robot arm and Freight a mobile base that can carry a bin They can work in warehouses and handle most kinds of merchandise 
+The machines can work alongside human staff in filling repetitive pick and pack orders They can also function together with the Fetch robot grabbing inventory from shelves with its arm and packing it into the mobile bin before shipping 
+Equipped with a 3D camera in its head Fetch can move its body up and down to get closer to merchandise Its arm can move along seven axes of motion with each joint measuring the amount of force it must exert to move objects It has a lifting capacity of about 5 8 kilograms Freight can carry up to 68kg and can work independently or in conjunction with Fetch 
+Fetch Robotics sees opportunity in the increasing automation in warehouses specially in e commerce services such as Amazon Prime and Google Express that promise quick delivery 
+Because of the pressures of on demand commerce there is a critical need for warehouses and fulfillment centers to become more efficient Fetch Robotics CEO Melonee Wise said via email We see our robots as a means to that end 
+Fetch s new robots are slated to go on display at ICRA 2015 an IEEE Robotics and Automation Society conference in Seattle Washington in late May 

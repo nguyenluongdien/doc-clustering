@@ -1,0 +1,7 @@
+Built on a foundation of cloud social mobile and data science technologies Salesforce for HR taps Salesforce s Customer Success Platform and is designed to complement existing HR focused systems with a number of tools designed to help companies and employees connect 
+An Employee Journeys tool for instance focuses on guiding employees throughout their tenure at the organization from onboarding to ongoing development An Employee Communities offering meanwhile lets companies create employee communities that connect colleagues and cultivate a culture of collaboration 
+HR Help Desk seeks to help HR teams deliver personalized service experiences to employees as well as empower employees to help themselves via technology powered by Salesforce s Service Cloud 
+Finally Salesforce s Engagement Apps piece is design to help organizations build and deploy mobile apps that are tied into their business processes 
+This move makes a lot of sense for Salesforce as they grow beyond simply being the world leading CRM into clear leadership in the platform as a service space for a full suite of business needs said Stephen Simons CIO for Direct Energy Solar 
+Companies including Appirio Deloitte Jobscience and Lumesse are also working to leverage the Salesforce1 platform with products for employee engagement 
+Salesforce for HR is now generally available Pricing information was not immediately disclosed 

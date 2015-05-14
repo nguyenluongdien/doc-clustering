@@ -1,0 +1,9 @@
+Unveiled at Sapphire Now the company s annual user conference the SAP Hana Cloud Platform for IoT is designed to enable businesses to connect any sensor or device to any app or business process in their company and business network Device management IoT messaging and IoT application enablement are all part of the new offering including data modeling 
+Existing IoT applications such as SAP Connected Assets Connected Logistics and Predictive Maintenance and Service will all leverage the new platform as well 
+The concept of tracking devices is not new but chips and sensors are getting cheaper and now there s big data said Michael Lynch SAP s vice president of marketing for IoT 
+At the same time nobody is buying IoT there is no IoT app Lynch said IoT is just a technology that allows you to optimize business processes 
+With the new IoT focused services anyone can connect anything to our platform and to any of our business processes he added 
+A company with a vending machine in a remote location for instance can choose embeddable applications from the new suite to tie that device to Hana and keep track of its sales and workings from afar noted Irfan Khan CTO for SAP s global customer operations 
+Users can also tap SAP s business networks Lynch added allowing them to make sure they re getting the cheapest part for example 
+It s the entire thread Lynch said It s not I ve got a thing connected 
+Siemens will be using SAP s new IoT offering as the basis for its own Siemens Cloud for Industry the two companies announced SAP and Intel meanwhile have formed an IoT partnership as well with a focus on simplifying securing and scaling the IoT for the enterprise 

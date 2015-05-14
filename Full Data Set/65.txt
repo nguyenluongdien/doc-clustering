@@ -1,0 +1,8 @@
+In perhaps the first sign that live streaming might spawn its own assortment of sub players a visual data analysis startup is putting its chops to work to categorize and rank videos on Periscope the app owned by Twitter 
+Dextro which uses algorithms to analyze the content of photos and videos is launching Stream on Tuesday It s a web app that categorizes and links to videos posted publicly in Periscope as they re broadcast in real time 
+Stream also ranks elements in videos have been popular over the week and the most popular elements of the day Last week selfies took the lead with videos containing baseball caps and dogs trailing behind 
+Stream s specificity depends on what exactly Dextro s technology is able to identify It s done well at identifying live crowds but a shortcoming is video shot in landscape mode which has thrown off Dextro s system 
+Still We thought that Stream would be a way to solve the discoverability and searchability problems that are happening on Periscope right now said David Luan cofounder at Dextro 
+As it stands now Periscope s app highlights current live streams and recent ones from people users follow A separate tab displays other streams globally but without categorization 
+Users don t need accounts on Periscope to view Periscope videos on Stream 
+Dextro otherwise provides data analysis services to companies that want to learn more about digital videos and photos either those uploaded to their own sites or elsewhere A marketing agency for instance might use Dextro to see which products or brands appear in a group of videos and at what point during those videos Alongside the launch of the consumer facing Stream app Dextro expanded its business services on Tuesday to include live streaming 
