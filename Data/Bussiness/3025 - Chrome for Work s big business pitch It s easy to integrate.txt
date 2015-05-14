@@ -1,0 +1,14 @@
+Google made its case Wednesday for Chrome use in the enterprise and a big part of its pitch is that companies can integrate products they re already using with its Chrome devices and software 
+Outlined in detail during a two hour webcast Google s Chrome for Work strategy includes an expanding number of ways that companies can include Chrome OS in their technology mix without having to give up the hardware and software they have in place 
+Google s own Apps by contrast which might have been given a central role were largely absent 
+Overall I think the Chrome for Work pitch probably constitutes Google s most disruptive move to date said Charles King principal analyst with Pund IT 
+Google Docs was initially considered a cheap alternative to suites like Microsoft Office and was mainly of interest to budget conscious individuals and organizations King noted But as Docs steadily improved and Chromebooks began finding success in education and other markets Google became a more serious threat 
+Google s Rajen Sheth at the Chrome for Work event Wednesday 
+The new Chrome for Work offerings demonstrate that Google is moving actively and aggressively in this arena both on its own and with the help of partners like Dell and HP 
+It would be a mistake for Microsoft or anyone else to underestimate the company s ambitions or its Chrome solutions King said 
+At the same time Google suffers from a trust problem in the enterprise said Rob Enderle principal analyst with Enderle Group 
+IT has been burned a lot over the years by companies that didnt understand their business and couldnt step up to the service requirements they have Enderle said 
+Partners like Dell will be critical to closing the credibility gap and creating the necessary trust to close deals he added but even with Dell they ll need some large reference accounts that they can use to showcase this all works to scale and they cant use education clients for this 
+Google was keen to introduce some of those reference customers Wednesday mentioning that Netflix Pinterest and clothing chain Chico s all use its work tools 
+In the end even though the offerings are actually rather impressive this effort may be terminally hampered by Googles image and the events surrounding Google which further damage that image Enderle concluded IT buyers dont buy from vendors they cant trust if they have a choice 
+Google s other announcements at the Chrome Live event on Wednesday included a new version of Chromebox for meetings capable of accommodating up to 20 people along with new pricing flexibility and improvements to its management services for Chrome dedicated devices 

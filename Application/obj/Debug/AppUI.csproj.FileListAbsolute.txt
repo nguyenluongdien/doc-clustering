@@ -12,3 +12,5 @@ D:\Study Project\Advanced Data Mining\DocClustering\Application\bin\Debug\Domain
 D:\Study Project\Advanced Data Mining\DocClustering\Application\bin\Debug\Clustering.pdb
 D:\Study Project\Advanced Data Mining\DocClustering\Application\bin\Debug\Preprocessing.pdb
 D:\Study Project\Advanced Data Mining\DocClustering\Application\bin\Debug\Domain.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\obj\Debug\Application.exe
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\obj\Debug\Application.pdb

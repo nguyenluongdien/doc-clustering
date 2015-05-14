@@ -1,0 +1,19 @@
+A report that Salesforce com is entertaining takeover offers whipped up a storm of speculation Wednesday as analysts and other observers mulled the possibility and what it could mean for the enterprise software market 
+It would require a massive deal for that to happen noted Ray Wang founder and principal analyst with Constellation Research Salesforce still has a lot of growth ahead 
+Salesforce did not respond to a request for comment 
+Rumors have swirled for some time that Salesforce is for sale Wang noted and clearly suitors would have to be very large companies 
+You d have to ask who could afford it and who could get it done said Michael Fauscette a group vice president with IDC The afford list is maybe IBM Oracle SAP Apple Microsoft 
+In the who could get it done category however the list is much shorter Fauscette added IBM might seem like a logical choice but I wonder if the fairly new CEO could pull it off and whether Salesforce CEO Marc Benioff would let that happen 
+Oracle is a more likely candidate and don t rule out SAP he added 
+Also worth remembering is Oracle s acquisition of Sun when then Oracle CEO Larry Ellison let someone else set the price but wasn t willing to lose the deal according to Fauscette 
+Oracle also got the vote of Frank Scavo president of Computer Economics 
+Microsoft SAP HP and IBM were all on Scavo s list of possibilities but both Microsoft and SAP would have to integrate Salesforce s software with their respective Azure and Hana platforms I dont think either Microsoft or SAP would want to plop down 50 billion just to have the opportunity to start work on a big infrastructure project Scavo said 
+HP meanwhile couldnt make the Autonomy acquisition fly for 10 billion so Im not sure theyd want to try Salesforce for five times that amount he added 
+The logical buyer is IBM said Denis Pombriant managing principal at Beagle Research Group The company could afford it and they have cash that they don t know what to do with they are buying back shares to increase shareholder value Pombriant noted 
+In addition aside from its consulting business IBM doesn t have a big portfolio of future invention that will carry it forward so an acquisition is logical he added If it does turn out to be IBM Oracle will make a play in its own defense and while we re at it HP will join the fray for similar reasons Pombriant predicted 
+Of course the cultural differences are stark between Salesforce and IBM he noted 
+Salesforce is California laid back IBM is New York pinstripes Salesforce is a risk taker and IBM is risk averse he said I don t think Benioff or his company would survive in IBM IBM is where software companies go to die 
+Regardless of the identity of any potential buyers there could be several factors motivating Salesforce to consider putting the company up for sale 
+The best time to sell of course is when the share price is at or near its top Scavo pointed out So its possible that Salesforce sees selling out as a better opportunity right now than to continue to invest for growth 
+The company may feel the need of a larger organization to help it perhaps to fill in the lack of their own infrastructure portfolio suggested IDC research manager Larry Carvalho 
+In the end the company is obligated to shareholders to entertain all offers Wang pointed out What they really want to do is get ahead of that and put in a mechanism to ensure a fair and objective process 

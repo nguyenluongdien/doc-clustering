@@ -1,0 +1,9 @@
+While marketers want to engage customers in a unified way disconnected systems often make that difficult Adobe and Microsoft aim to tackle that problem by integrating Adobe s Marketing Cloud with Dynamics CRM 
+The goal of the integration announced Wednesday at Adobe Summit in London is to let companies execute marketing strategies that take all customer engagements into account from reach and acquisition to retention and loyalty 
+Microsoft Dynamics Marketing complements Adobe s Marketing Cloud with capabilities including marketing resource management With the new integration companies get a combined tool for both customer relationship management and marketing 
+Using it enterprises can align sales and marketing activities more closely so they can fine tune sales and service calls and better identify sales opportunities according to Microsoft and Adobe 
+They can also combine Web behavior data with order history return history loyalty status and call center history allowing them to determine where a customer currently falls in the sales lifecycle and then target them accordingly 
+Other plans for the two companies partnership include Adobe Marketing Cloud Solutions running on the Microsoft Azure Cloud platform and a connector that will let data and insights from Adobe Analytics appear in Power BI the two companies said 
+Adobe s Marketing Cloud got an additional boost on Wednesday through closer ties with its Creative Cloud suite of apps and services for content creation 
+New asset management capabilities in the Adobe Experience Manager portion of Marketing Cloud for instance are designed to improve the creative to marketing workflow A new Assets core service lets users sync store and share content across marketing solutions and Creative Cloud 
+Other new additions include shoppable hotspots in video content and functionality that quickly adapts Adobe Photoshop CC files for Web and mobile without the need for coding 

@@ -1,0 +1,6 @@
+Amazon has acquired ClusterK a developer of software that helps companies run mission critical applications on spare cloud compute capacity sold by Amazon Web Services 
+A spokeswoman for AWS confirmed the acquisition but did not provide further details 
+Spot instances are spare Amazon EC2 Elastic Compute Cloud instances for which users name their price The price for the spot instances can vary in real time depending on demand and supply The instance will run until the spot price exceeds the bid or the user terminates it 
+This is in contrast with AWS On Demand instances that let users pay for compute capacity by the hour without long term commitments or Reserved instances which provide capacity reservation AWS has positioned spot instances as the option to use when customers have flexibility in when their applications can run 
+If available spot markets disappeared or exceeded On Demand pricing ClusterK s Balancer would rebalance to On Demand capacity to ensure the application remains available and then opportunistically rebalance to spot markets as they became available and cost effective 
+AWS may have decided to buy the startup to give its customers cheaper cloud options around its spot instances even as its competitors are cutting prices 

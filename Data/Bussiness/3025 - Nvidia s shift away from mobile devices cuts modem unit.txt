@@ -1,0 +1,6 @@
+Nvidia s 3G and LTE modem business is up for sale as the company moves away from mobile devices 
+The company on Tuesday said it plans to wind down its Icera modem operations by the second quarter of fiscal 2016 and sell its assets Nvidia will start licensing modems from third party companies to pair LTE connectivity with its Tegra chips 
+Icera was considered a smart acquisition at the time with its flexible software based modem which could be quickly updated to support new connectivity technologies But it performed poorly and appeared in just a handful of smartphones and tablets 
+Eventually Nvidia started losing mobile device market share to Qualcomm MediaTek and Intel all of which have CPU and modem technologies With prices of smartphones and tablets also falling fast Nvidia began moving away from low margin mobile device market and shifted its focus to the graphics processors cars and supercomputing which account for a majority of the company s revenue 
+Nvidia is now putting Tegra chips in cars headsets and other devices that require strong graphics The company s new focus has reduced the need for an internal modem business 
+Nvidia will share further details about winding down the Icera business on Thursday when it reports earnings for the first fiscal quarter of 2016 Nvidia didn t detail the fate of 500 employees in the Icera business unit 

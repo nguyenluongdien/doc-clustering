@@ -1,0 +1,10 @@
+Less than a week after reporting that Microsoft s enterprise cloud business is currently on an annual run rate of US 6 3 billion CEO Satya Nadella says the company s goal is to increase that figure to 20 billion by fiscal year 2018 
+That s the cloud that we want to build he said Wednesday at the company s briefing for financial analysts during its Build conference in San Francisco It s leading with some of our SaaS applications and having the IaaS PaaS capability and our servers which are the edge of our cloud That s our vision That s why we believe that we get to participate in future growth 
+Run rate is simply quarterly revenue presented on an annualized basis Microsoft s cloud business includes its Azure platform and cloud versions of Office 365 and Dynamics CRM 
+It s an aggressive goal for Nadella to set but this is also close to his core skill set so he is unusually credible setting this goal said Rob Enderle principal analyst with Enderle Group 
+The prominence Nadella gave the goal in his speech also suggests that it is a NET like priority for the firm and Microsoft has historically been very strong with priorities like this Enderle added 
+The company has probably worked out the plan in greater detail than it revealed on Wednesday he said 
+What was shared wouldn t get him to this kind of a massive gain Enderle said CEOs don t set goals like this that they think are unachievable If I were Amazon I d be very concerned 
+The goal is entirely achievable said Charles King principal analyst with Pund IT It assumes an annual growth rate of about 50 percent which is roughly what competitors including AWS are achieving 
+Overall Microsoft s cloud portfolio is significantly wider and deeper than those of many of its competitors including AWS King added 
+Unless the bottom falls out of the cloud market or the greater economy I expect Nadella will be able to say I told you so when it comes time for Build 2018 he said 

@@ -1,0 +1,5 @@
+OK Google where are the open houses in Chicago That s a question that might yield a useful response for Android users now that Zillow s real estate service is integrated into Google s voice search 
+Several new integrations hit Google s voice search system for Android devices on Thursday which lets people conduct queries orally by first saying OK Google In addition to Zillow Shazam NPR and online radio service TuneIn have been integrated 
+The integrations require users to have those other apps on their smartphone or tablet But instead of having to open the apps individually users can ask their mobile device directly which hopefully will then take them inside the appropriate app with an answer 
+Through the Shazam integration people can ask their smartphone what song is playing around them by saying OK Google Shazam this song Google voice search already lets people identify songs without Shazam 
+Its functionalities extend beyond search The OK Google command is also now a key element in how people interact with smartwatches running Google s Android Wear operating system 

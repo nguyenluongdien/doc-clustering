@@ -1,0 +1,2 @@
+Meerkat for Android connects to your Twitter account to serve up a list of who is streaming live video 
+The interface is pretty identical to that of its iOS counterpart requiring you to log in with Twitter and then displaying an assortment of friends and other trending users who are live broadcasting themselves 

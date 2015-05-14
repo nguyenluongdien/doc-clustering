@@ -1,0 +1,4 @@
+Streaming Xbox One games to a Windows tablet has been one of the most anticipated features of Microsoft s ecosystem A demo Microsoft showed off yesterday at Build 2015 reveals that it looks fantastic 
+Microsoft s Xbox app wil soon stream video from the Xbox One 
+There was a catch though The Xbox One was connected to a docked laptop via Ethernet Normally you would expect a tablet to be connected via Wi Fi and roaming roam freely around the house 
+Kevin Unangst senior director for PC Gaming in the Xbox group at Microsoft said that was because both devices were in a noisy environment with Wi Fi signals being passed back and forth among the many phones and PCs being toted around the event All that interference would have slowed down the network degrading the demo he said 
