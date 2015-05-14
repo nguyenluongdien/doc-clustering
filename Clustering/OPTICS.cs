@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Domain;
 
 namespace Clustering
 {
     public class OPTICS
     {
         const int numObject = 500;
-        double[,] matrixDistance = new double[numObject, numObject];
+        float[,] matrixDistance = new float[numObject, numObject];
         List<Object> setOfObject;
         int eps;
         int minPts;
 
-        public OPTICS(List<List<double>> lstMatrix, int eps, int minPts)
+        public OPTICS(List<Item> lstMatrix, int eps, int minPts)
         {
             this.eps = eps;
             this.minPts = minPts;
@@ -27,24 +28,42 @@ namespace Clustering
 
                 for(int j  = 0; j < i; j++)
                 {
-                    if(matrixDistance[i][j] <= eps)
+                    if(matrixDistance[i][j] != 0.0 && matrixDistance[i][j] <= eps)
                     {
-                        setOfObject[i].lstNeighbor.Add(setOfObject[j]);
+                        int ind = 0;
+                        foreach (Object obj in lstNeighbor)
+                        {
+                            ind++;
+                            if (res < matrixDistance[i][obj.index])
+                                break;
+                        }
+
+                        setOfObject[i].lstNeighbor.Insert(ind, setOfObject[j]);
                     }
                 }
 
                 for (int j = i + 1; j < n; j++)
                 {
-                    double res = distance(lstMatrix[i], lstMatrix[j]);
+                    float res = distance(lstMatrix[i].DocVector.Tf_idf, lstMatrix[j].DocVector.Tf_idf);
                     matrixDistance[i][j] = res;
                     matrixDistance[j][i] = res;
                     if(res <= eps)
                     {
-                        setOfObject[i].lstNeighbor.Add(setOfObject[j]);
+                        int ind = 0;
+                        foreach(Object obj in lstNeighbor)
+                        {
+                            ind++;
+                            if (res < matrixDistance[i][obj.index])
+                                break;
+                        }
+
+                        setOfObject[i].lstNeighbor.Insert(ind, setOfObject[j]);
                     }
 
                 }
             }
+
+            Run(setOfObject);
         }
 
         public void Run(List<Object> setOfObject)
@@ -107,14 +126,14 @@ namespace Clustering
             }
         }
         // Tính khoảng cách tới Object khác
-        private double distance(List<double> obj1, List<double> obj2)
+        private float distance(float[] obj1, float[] obj2)
         {
-            int n = obj1.Count;
-            double res = 0;
+            int n = obj1.Length;
+            float res = 0;
 
             for (int i = 0; i < n; i++)
             {
-                double sub = obj1[i] - obj2[i];
+                float sub = obj1[i] - obj2[i];
                 if (sub < 0) sub = -sub;
                 res += sub;
             }
@@ -143,15 +162,9 @@ namespace Clustering
         public void setCoreDist(double[,] matrixDistance, int eps, int MinPts)
         {
             int count = 0;
-
-            foreach(Object obj in lstNeighbor)
-            {
-                //if(matrixDistance[index][obj.index] <= eps)
-                //{
-
-                //}
-            }
-            return 0;
+            if (MinPts > lstNeighbor)
+                return;
+            coreDist = lstNeighbor[MinPts - 1];
         }
     }
 
