@@ -130,15 +130,16 @@
             this.txtNumClusters.Name = "txtNumClusters";
             this.txtNumClusters.Size = new System.Drawing.Size(165, 20);
             this.txtNumClusters.TabIndex = 4;
+            this.txtNumClusters.Text = "20";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 83);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 13);
+            this.label3.Size = new System.Drawing.Size(107, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Number of clusters:";
+            this.label3.Text = "Number of keywords:";
             // 
             // groupBox3
             // 

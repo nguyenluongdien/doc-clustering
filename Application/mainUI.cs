@@ -42,9 +42,10 @@ namespace AppUI
 
         private void btnExe_Click(object sender, EventArgs e)
         {
+            M = Convert.ToInt32(txtNumClusters.Text);
             // Preprocessing
             taskName.Text = "Preprocessing...";
-            Preprocessing.VectorSpaceModel.extractFeatures(selectedFolder, 5);
+            Preprocessing.VectorSpaceModel.extractFeatures(selectedFolder, M);
             taskName.Text = "Preprocessing complete.";
             MessageBox.Show("Preprocessing complete.");
             
@@ -86,10 +87,10 @@ namespace AppUI
                 M = int.Parse(reader.ReadLine()); // Read number of keywords
 
                 keywords = reader.ReadLine(); // Read keywords
-
-                Item tmp = new Item(M);                
+                            
                 for (int i = 0; i < N; ++i)
                 {
+                    Item tmp = new Item(M);    
                     string[] values = reader.ReadLine().Split(' ');
                     for (int j = 0; j < M; ++j)
                         tmp.Vector.Tf_idf[j] = float.Parse(values[j]);
@@ -107,7 +108,7 @@ namespace AppUI
             using (StreamWriter writer = new StreamWriter(resultFile, false))
             {
                 for (int i = 0; i < data.Count; ++i)
-                    writer.WriteLine(data[i].Label);
+                    writer.WriteLine(data[i].Label + 1);
             }
         }
     }

@@ -106,15 +106,15 @@ namespace Preprocessing
             // Step 1a
             if (p_word.Substring(p_word.Length - 1) == "s")
             {
-                if (p_word.Substring(p_word.Length - 4) == "sses")
+                if ((p_word.Length > 4) && (p_word.Substring(p_word.Length - 4) == "sses"))
                 {
                     p_word = p_word.Substring(0, p_word.Length - 2);
                 }
-                else if (p_word.Substring(p_word.Length - 3) == "ies")
+                else if ((p_word.Length > 3) && (p_word.Substring(p_word.Length - 3) == "ies"))
                 {
                     p_word = p_word.Substring(0, p_word.Length - 2);
                 }
-                else if (p_word.Substring(p_word.Length - 2, 1) != "s")
+                else if ((p_word.Length > 2) && (p_word.Substring(p_word.Length - 2, 1) != "s"))
                 {
                     // If second-to-last character is not "s"
                     p_word = p_word.Substring(0, p_word.Length - 1);
@@ -134,11 +134,11 @@ namespace Preprocessing
                 if (Regex.IsMatch("/([aeiou]|[^aeiou]y).*(ed|ing)$/", p_word))
                 { // vowel in stem
                     // Strip '-ed' or '-ing'
-                    if (p_word.Substring(p_word.Length - 2) == "ed")
+                    if ((p_word.Length > 2) && (p_word.Substring(p_word.Length - 2) == "ed"))
                     {
                         p_word = p_word.Substring(0, p_word.Length - 2);
                     }
-                    else
+                    else if (p_word.Length > 3)
                     {
                         p_word = p_word.Substring(0, p_word.Length - 3);
                     }
@@ -568,33 +568,38 @@ namespace Preprocessing
                     p_pos = -1;
                 }
             }
-            string charpos = p_word.Substring(Math.Abs(p_pos), 1);
-            switch (charpos)
+            if (p_word.Length > 1)
             {
-                case "a":
-                case "e":
-                case "i":
-                case "o":
-                case "u":
-                    return false;
-                case "y":
-                    if (p_pos == 0 || p_word.Length == -p_pos)
-                    {
-                        // Check second letter of word.
-                        // If word starts with "yy", return true.
-                        if (p_word.Substring(1, 1) == "y")
+                string charpos = p_word.Substring(Math.Abs(p_pos), 1);
+                switch (charpos)
+                {
+                    case "a":
+                    case "e":
+                    case "i":
+                    case "o":
+                    case "u":
+                        return false;
+                    case "y":
+                        if (p_pos == 0 || p_word.Length == -p_pos)
                         {
-                            return true;
+                            // Check second letter of word.
+                            // If word starts with "yy", return true.
+                            if ((p_word.Length > 2) && (p_word.Substring(1, 1) == "y"))
+                            {
+                                return true;
+                            }
+                            return !(this.is_consonant(p_word, 1));
                         }
-                        return !(this.is_consonant(p_word, 1));
-                    }
-                    else
-                    {
-                        return !(this.is_consonant(p_word, p_pos - 1));
-                    }
-                default:
-                    return true;
+                        else
+                        {
+                            return !(this.is_consonant(p_word, p_pos - 1));
+                        }
+                    default:
+                        return true;
+                }
             }
+
+            return false;
         }
 
         /**

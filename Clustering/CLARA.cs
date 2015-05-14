@@ -19,6 +19,7 @@ namespace Clustering
                 List<Item> sample = new List<Item>();
                 Utility.randomSelection(data, ref sample, m);
                 List<Item> medoids = PAM.Pam(ref sample, k);
+                Utility.doClustering(medoids, ref data);
 
                 float sim = Utility.quality(data, medoids);
                 if (sim > maxSim)
