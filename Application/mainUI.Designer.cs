@@ -31,6 +31,7 @@
             this.cbxAlg = new System.Windows.Forms.ComboBox();
             this.btnExe = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbError = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -41,10 +42,8 @@
             this.statInfo = new System.Windows.Forms.RichTextBox();
             this.btnSelectFolder = new System.Windows.Forms.Button();
             this.fbdDataFolder = new System.Windows.Forms.FolderBrowserDialog();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.bgWorker = new System.ComponentModel.BackgroundWorker();
-            this.completedPert = new System.Windows.Forms.Label();
             this.taskName = new System.Windows.Forms.Label();
+            this.lbElapsed = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -75,7 +74,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbError);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.lbElapsed);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(205, 154);
             this.groupBox1.Name = "groupBox1";
@@ -83,6 +84,14 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Result";
+            // 
+            // lbError
+            // 
+            this.lbError.AutoSize = true;
+            this.lbError.Location = new System.Drawing.Point(58, 50);
+            this.lbError.Name = "lbError";
+            this.lbError.Size = new System.Drawing.Size(0, 13);
+            this.lbError.TabIndex = 1;
             // 
             // label2
             // 
@@ -174,28 +183,6 @@
             // 
             this.fbdDataFolder.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
-            // progressBar
-            // 
-            this.progressBar.Location = new System.Drawing.Point(12, 254);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(410, 23);
-            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar.TabIndex = 2;
-            // 
-            // bgWorker
-            // 
-            this.bgWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgWorker_ProgressChanged);
-            // 
-            // completedPert
-            // 
-            this.completedPert.AutoSize = true;
-            this.completedPert.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.completedPert.Location = new System.Drawing.Point(428, 261);
-            this.completedPert.Name = "completedPert";
-            this.completedPert.Size = new System.Drawing.Size(45, 16);
-            this.completedPert.TabIndex = 6;
-            this.completedPert.Text = "label5";
-            // 
             // taskName
             // 
             this.taskName.AutoSize = true;
@@ -206,14 +193,20 @@
             this.taskName.TabIndex = 6;
             this.taskName.Text = "taskName";
             // 
+            // lbElapsed
+            // 
+            this.lbElapsed.AutoSize = true;
+            this.lbElapsed.Location = new System.Drawing.Point(71, 25);
+            this.lbElapsed.Name = "lbElapsed";
+            this.lbElapsed.Size = new System.Drawing.Size(0, 13);
+            this.lbElapsed.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 290);
+            this.ClientSize = new System.Drawing.Size(486, 258);
             this.Controls.Add(this.taskName);
-            this.Controls.Add(this.completedPert);
-            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.btnSelectFolder);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -245,11 +238,10 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnSelectFolder;
         private System.Windows.Forms.FolderBrowserDialog fbdDataFolder;
-        private System.Windows.Forms.ProgressBar progressBar;
-        private System.ComponentModel.BackgroundWorker bgWorker;
-        private System.Windows.Forms.Label completedPert;
         private System.Windows.Forms.Label taskName;
         private System.Windows.Forms.RichTextBox statInfo;
+        private System.Windows.Forms.Label lbError;
+        private System.Windows.Forms.Label lbElapsed;
     }
 }
 

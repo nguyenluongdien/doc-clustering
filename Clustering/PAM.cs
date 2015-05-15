@@ -57,7 +57,7 @@ namespace Clustering
         private static float Sjmp(List<Item> data, List<Item> medoids, int j, int m, int p)
         {
             // Find Om2
-            int m2 = data[j].Label;
+            int m2 = data[j].TmpLabel;
             if (m2 == m)
             {
                 float maxSim = -1;
@@ -78,7 +78,7 @@ namespace Clustering
             float simjm2 = SimMetrics.cosSim(data[j].Vector.Tf_idf, medoids[m2].Vector.Tf_idf);
 
             // Evaluate in 4 cases
-            if (data[j].Label == m) // Item[j] belongs to cluster m
+            if (data[j].TmpLabel == m) // Item[j] belongs to cluster m
             {                
                 if (simjp <= simjm2)
                     return (simjm2 - simjm); // Item[j] leaves cluster m and joins in cluster m2

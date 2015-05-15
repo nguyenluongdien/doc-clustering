@@ -14,17 +14,25 @@ namespace Domain
             set { vector = value; }
         }
 
-        private int label; // Label of item
+        private int label; // Real label of item
         public int Label
         {
             get { return label; }
             set { label = value; }
-        }        
+        }
+
+        private int tmpLabel; // Temporary label
+        public int TmpLabel
+        {
+            get { return tmpLabel; }
+            set { tmpLabel = value; }
+        }
 
         public Item(int M)
         {
             vector = new DocVector(M);
-            label = -1;            
+            label = -1;
+            tmpLabel = -1;
         }
     }
 }

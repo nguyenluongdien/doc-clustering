@@ -31,6 +31,9 @@ namespace Clustering
                 ++i;
             }
 
+            for (int j = 0; j < data.Count; ++j)
+                data[j].TmpLabel = bestMedoids[data[j].TmpLabel].Label;
+
             return bestMedoids;
         }
     }

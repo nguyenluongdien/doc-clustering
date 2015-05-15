@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
 using Domain;
 using Clustering;
 
@@ -18,18 +19,11 @@ namespace AppUI
         private static int N = 0;
         private static int M = 0;
         private static string keywords;
+        private static int numError;
 
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void bgWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            // Change to value of progress bar
-            progressBar.Value = e.ProgressPercentage;
-            // Update the text
-            completedPert.Text = e.ProgressPercentage.ToString();
         }
 
         private void btnSelectFolder_Click(object sender, EventArgs e)
@@ -59,6 +53,7 @@ namespace AppUI
 
             // Clustering            
             taskName.Text = "Clustering";
+            Stopwatch stopwatch = Stopwatch.StartNew();
             /* Switch case for clustering algorithms */
             switch (cbxAlg.SelectedIndex)
             {
@@ -69,10 +64,16 @@ namespace AppUI
                     //Clustering. OPTICS
                     break;
             }
+            stopwatch.Stop();
 
             storeResult(data);
             // Clear progress info            
+            taskName.Text = "Clustering complete.";
             MessageBox.Show("Your collection is clustered.");
+
+            // Show result information
+            lbElapsed.Text = Convert.ToString(stopwatch.ElapsedMilliseconds) + " ms";
+            lbError.Text = Convert.ToString(Math.Round(numError * 1.0 / N * 100, 2)) + " %";
         }
 
         // Load feature
@@ -94,6 +95,7 @@ namespace AppUI
                     string[] values = reader.ReadLine().Split(' ');
                     for (int j = 0; j < M; ++j)
                         tmp.Vector.Tf_idf[j] = float.Parse(values[j]);
+                    tmp.Label = i / 100;
 
                     dataSet.Add(tmp);
                 }
@@ -105,11 +107,16 @@ namespace AppUI
         // Store result
         private void storeResult(List<Item> data, string resultFile = "clustering.txt")
         {
+            numError = 0;
             using (StreamWriter writer = new StreamWriter(resultFile, false))
             {
                 for (int i = 0; i < data.Count; ++i)
-                    writer.WriteLine(data[i].Label + 1);
-            }
+                {
+                    if (data[i].Label != data[i].TmpLabel)
+                        ++numError;
+                    writer.WriteLine(data[i].TmpLabel + 1);
+                }
+            }            
         }
     }
 }

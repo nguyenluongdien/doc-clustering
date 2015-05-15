@@ -13,7 +13,7 @@ namespace Clustering
         {
             randomSet.Clear();
             HashSet<int> indices = new HashSet<int>();
-            Random r = new Random();
+            Random r = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
 
             do
             {
@@ -41,7 +41,7 @@ namespace Clustering
                     if (sim > maxSim)
                     {
                         maxSim = sim;
-                        data[i].Label = j;
+                        data[i].TmpLabel = j;
                     }
                 }
             }
@@ -52,7 +52,7 @@ namespace Clustering
         {
             float result = 0;
             for (int i = 0; i < data.Count; ++i)
-                result += SimMetrics.cosSim(data[i].Vector.Tf_idf, medoids[data[i].Label].Vector.Tf_idf);
+                result += SimMetrics.cosSim(data[i].Vector.Tf_idf, medoids[data[i].TmpLabel].Vector.Tf_idf);
 
             return result;
         }

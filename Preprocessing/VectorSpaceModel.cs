@@ -60,15 +60,34 @@ namespace Preprocessing
             foreach (string document in collection.RawDocs)
             {
                 // Calculate tf-idf
+                int topRange = M * 5;
+                HashSet<int> indices = new HashSet<int>();
+                Random r = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
+
+                do
+                {
+                    int pos = r.Next(0, topRange);
+                    indices.Add(pos);
+                } while (indices.Count < M);
+
                 DocVector _docVector = new DocVector(M);
                 int i = 0;
-                foreach (KeyValuePair<string, int> pair in keywords_df)
+                foreach (int pos in indices)
                 {
+                    KeyValuePair<string, int> pair = keywords_df.ElementAt(pos);
                     _docVector.Tf_idf[i] = (float)(Math.Log(collection.RawDocs.Count * 1.0 / pair.Value) * calc_tf(document, pair.Key));
-                    ++i;
-                    if (i >= M) 
-                        break;
-                }                                                
+                    ++i;                    
+                }
+
+                //DocVector _docVector = new DocVector(M);
+                //int i = 0;
+                //foreach (KeyValuePair<string, int> pair in keywords_df)
+                //{
+                //    _docVector.Tf_idf[i] = (float)(Math.Log(collection.RawDocs.Count * 1.0 / pair.Value) * calc_tf(document, pair.Key));
+                //    ++i;
+                //    if (i >= M) 
+                //        break;
+                //}                                                
                 docVectorSpace.Add(_docVector);
             }
 
