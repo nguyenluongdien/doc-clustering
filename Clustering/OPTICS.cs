@@ -8,108 +8,115 @@ namespace Clustering
 {
     public class OPTICS
     {
-        const int numObject = 500;
-        float[,] matrixDistance = new float[numObject, numObject];
+        int numObject;
+        float[,] matrixDistance;
         List<Object> setOfObject;
-        int eps;
-        int minPts;
+        float Eps;
+        int MinPts;
+        int countLabel = 1;
 
-        public OPTICS(List<Item> lstMatrix, int eps, int minPts)
+        public OPTICS(ref List<Item> lstMatrix, float eps, int minPts)
         {
-            this.eps = eps;
-            this.minPts = minPts;
-            List<Object> setOfObject = new List<Object>();
+            this.Eps = eps;
+            this.MinPts = minPts;
+            numObject = lstMatrix.Count;
+            matrixDistance = new float[numObject, numObject];
+            setOfObject = new List<Object>();
+            Run(ref lstMatrix);
+        }
 
+        public void Run(ref List<Item> lstMatrix)
+        {
             int n = lstMatrix.Count;
             for (int i = 0; i < n; i++)
             {
-                matrixDistance[i][i] = 0.0;
+                matrixDistance[i, i] = 0.0f;
                 setOfObject.Add(new Object(i));
 
-                for(int j  = 0; j < i; j++)
-                {
-                    if(matrixDistance[i][j] != 0.0 && matrixDistance[i][j] <= eps)
-                    {
-                        int ind = 0;
-                        foreach (Object obj in lstNeighbor)
-                        {
-                            ind++;
-                            if (res < matrixDistance[i][obj.index])
-                                break;
-                        }
+                //for (int j = 0; j < i; j++)
+                //{
+                //    if (matrixDistance[i, j] <= eps)
+                //    {
+                //        int ind = 0;
+                //        foreach (Object obj in setOfObject[i].lstNeighbor)
+                //        {
+                //            ind++;
+                //            if (matrixDistance[i, j] < matrixDistance[i, obj.index])
+                //                break;
+                //        }
 
-                        setOfObject[i].lstNeighbor.Insert(ind, setOfObject[j]);
-                    }
-                }
+                //        setOfObject[i].lstNeighbor.Insert(ind, setOfObject[j]);
+                //    }
+                //}
 
                 for (int j = i + 1; j < n; j++)
                 {
-                    float res = distance(lstMatrix[i].DocVector.Tf_idf, lstMatrix[j].DocVector.Tf_idf);
-                    matrixDistance[i][j] = res;
-                    matrixDistance[j][i] = res;
-                    if(res <= eps)
-                    {
-                        int ind = 0;
-                        foreach(Object obj in lstNeighbor)
-                        {
-                            ind++;
-                            if (res < matrixDistance[i][obj.index])
-                                break;
-                        }
+                    float res = distance(lstMatrix[i].Vector.Tf_idf, lstMatrix[j].Vector.Tf_idf);
+                    matrixDistance[i, j] = res;
+                    matrixDistance[j, i] = res;
+                    //if (res <= eps)
+                    //{
+                    //    int ind = 0;
+                    //    foreach (Object obj in setOfObject[i].lstNeighbor)
+                    //    {
+                    //        ind++;
+                    //        if (res < matrixDistance[i, obj.index])
+                    //            break;
+                    //    }
 
-                        setOfObject[i].lstNeighbor.Insert(ind, setOfObject[j]);
-                    }
+                    //    setOfObject[i].lstNeighbor.Insert(ind, setOfObject[j]);
+                    //}
 
                 }
             }
 
-            Run(setOfObject);
-        }
 
-        public void Run(List<Object> setOfObject)
-        {
-            int n = setOfOject.Count;
+            n = setOfObject.Count;
             for(int i = 0; i < n; i++)
             {
                 Object obj = setOfObject[i];
-                ExpandCluster(setOfObject, obj);
-            }
-        }
-        
-        private void ExpandCluster(List<Object> setOfObject, Object obj)
-        {
-            List<Object> lstNeighbor = obj.getNeighbor(setOfObject, eps);
-            obj.process = true;
-            obj.setCoreDist(matrixDistance, eps, MinPts);
+                List<Object> lstNeighbor = obj.getNeighbor(matrixDistance, setOfObject, Eps);
 
-            if(obj.coreDist != 0)
-            {
-                // Tạo Seed mới
-                Seeds seeds = new Seeds();
-                updateSeeds(lstNeighbor, obj, seeds);
+                // ExpandCluster(setOfObject, obj);
+                obj.process = true;
+                obj.setCoreDist(matrixDistance, Eps, MinPts);
 
-                foreach (Object objNeighbor in seeds.LstSeeds)
+                if (obj.coreDist != 0)
                 {
-                    List<Object> lstNeiborOfObjNeighbor = objNeighbor.getNeighbor(setOfObject, eps);
-                    objNeighbor.process = true;
-                    if(objNeighbor.coreDist != 0)
+                    // Tạo Seed mới
+                    Seeds seeds = new Seeds();
+                    updateSeeds(obj.lstNeighbor, obj, seeds);
+
+                    foreach (Object objNeighbor in seeds.LstSeeds)
                     {
-                        updateSeeds(lstNeiborOfObjNeighbor, objNeighbor, seeds, eps,MinPts);
+                        List<Object> lstNeighborOfObj = objNeighbor.getNeighbor(matrixDistance, setOfObject, Eps);
+                        objNeighbor.process = true;
+                        if (objNeighbor.coreDist != 0.0)
+                        {
+                            updateSeeds(lstNeighborOfObj, objNeighbor, seeds);
+                        }
                     }
+
+                    foreach (Object objCluster in seeds.LstSeeds)
+                    {
+                        lstMatrix[objCluster.index].Label = countLabel;
+                    }
+                    if (seeds.LstSeeds.Count != 0)
+                        countLabel++;
                 }
             }
         }
 
         private void updateSeeds(List<Object> lstNeighbor, Object centreObj, Seeds seeds)
         {
-            float coreDist = centreObject.setCoreDist();
+            float coreDist = centreObj.coreDist;
             int num = lstNeighbor.Count;
             for(int i = 0; i < num; i++)
             {
                 Object obj = lstNeighbor[i];
                 if(!obj.process)
                 {
-                    float dist = centreObj.distance(obj);
+                    float dist = matrixDistance[centreObj.index, obj.index];
                     float tempCoreReach = dist > coreDist ? dist : coreDist;
 
                     if(obj.coreReachibility == -1)
@@ -134,10 +141,10 @@ namespace Clustering
             for (int i = 0; i < n; i++)
             {
                 float sub = obj1[i] - obj2[i];
-                if (sub < 0) sub = -sub;
-                res += sub;
+                //if (sub < 0) sub = -sub;
+                res += (sub*sub);
             }
-            return res;
+            return (float)Math.Sqrt(res);
         }
     }
 
@@ -159,12 +166,38 @@ namespace Clustering
             lstNeighbor = new List<Object>();
         }
 
-        public void setCoreDist(double[,] matrixDistance, int eps, int MinPts)
+        public void setCoreDist(float[,] matrixDistance, float eps, int MinPts)
         {
-            int count = 0;
-            if (MinPts > lstNeighbor)
+            if (MinPts > lstNeighbor.Count)
                 return;
-            coreDist = lstNeighbor[MinPts - 1];
+            coreDist = matrixDistance[index, lstNeighbor[MinPts - 1].index];
+        }
+
+        public List<Object> getNeighbor(float[,] matrixDistance, List<Object> setOfObject, float eps)
+        {
+            if(lstNeighbor.Count == 0)
+            {
+                int num = matrixDistance.GetLength(0);
+                for(int i = 0; i < num; i++)
+                {
+                    if(matrixDistance[index, i] <= eps)
+                    {
+                        int ind = 0;
+
+                        foreach(Object obj in lstNeighbor)
+                        {
+                            if(matrixDistance[index, obj.index] > matrixDistance[index, i])
+                            {
+                                break;
+                            }
+                            ind++;
+                        }
+
+                        lstNeighbor.Insert(ind, setOfObject[i]);
+                    }
+                }
+            }
+            return lstNeighbor;
         }
     }
 
@@ -181,13 +214,13 @@ namespace Clustering
             int ind = 0;
             foreach(Object objTemp in LstSeeds)
             {
-                ind++;
                 if (objTemp.coreReachibility > obj.coreReachibility)
                 {
-                    LstSeeds.Insert(ind, obj);
                     break;
                 }
+                ind++;
             }
+            LstSeeds.Insert(ind, obj);
         }
 
         public void Moveup(Object obj, float tempCoreReach)
@@ -212,7 +245,7 @@ namespace Clustering
             }while(right - left <= 1);
 
             obj.coreReachibility = tempCoreReach;
-            LstSeeds.Insert(ind, obj);
+            LstSeeds.Insert(pivot, obj);
         }
     }
 }
