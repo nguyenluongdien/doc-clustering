@@ -14,3 +14,15 @@ D:\Study Project\Advanced Data Mining\DocClustering\Application\bin\Debug\Prepro
 D:\Study Project\Advanced Data Mining\DocClustering\Application\bin\Debug\Domain.pdb
 E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\obj\Debug\Application.exe
 E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\obj\Debug\Application.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\bin\Debug\Application.exe
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\bin\Debug\Application.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\bin\Debug\Clustering.dll
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\bin\Debug\Domain.dll
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\bin\Debug\Preprocessing.dll
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\bin\Debug\Clustering.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\bin\Debug\Domain.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\bin\Debug\Preprocessing.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\obj\Debug\AppUI.csprojResolveAssemblyReference.cache
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\obj\Debug\AppUI.Form1.resources
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\obj\Debug\Application.Properties.Resources.resources
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Application\obj\Debug\AppUI.csproj.GenerateResource.Cache

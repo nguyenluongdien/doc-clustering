@@ -6,3 +6,9 @@ D:\Study Project\Advanced Data Mining\DocClustering\Preprocessing\bin\Debug\Doma
 D:\Study Project\Advanced Data Mining\DocClustering\Preprocessing\bin\Debug\Domain.pdb
 D:\Study Project\Advanced Data Mining\DocClustering\Preprocessing\obj\Debug\Preprocessing.dll
 D:\Study Project\Advanced Data Mining\DocClustering\Preprocessing\obj\Debug\Preprocessing.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Preprocessing\bin\Debug\Preprocessing.dll
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Preprocessing\bin\Debug\Preprocessing.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Preprocessing\bin\Debug\Domain.dll
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Preprocessing\bin\Debug\Domain.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Preprocessing\obj\Debug\Preprocessing.dll
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Preprocessing\obj\Debug\Preprocessing.pdb

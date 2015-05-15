@@ -38,10 +38,10 @@ namespace AppUI
         {
             M = Convert.ToInt32(txtNumClusters.Text);
             // Preprocessing
-            taskName.Text = "Preprocessing...";
-            Preprocessing.VectorSpaceModel.extractFeatures(selectedFolder, M);
-            taskName.Text = "Preprocessing complete.";
-            MessageBox.Show("Preprocessing complete.");
+            //taskName.Text = "Preprocessing...";
+            //Preprocessing.VectorSpaceModel.extractFeatures(selectedFolder, M);
+            //taskName.Text = "Preprocessing complete.";
+            //MessageBox.Show("Preprocessing complete.");
             
             // Load features         
             List<Item> data = loadFeature();
@@ -62,6 +62,7 @@ namespace AppUI
                     break;
                 default:
                     //Clustering. OPTICS
+                    OPTICS optics = new OPTICS(ref data, 0.045f, 50);
                     break;
             }
             stopwatch.Stop();

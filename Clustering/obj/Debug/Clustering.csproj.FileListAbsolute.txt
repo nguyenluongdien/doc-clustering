@@ -5,3 +5,10 @@ D:\Study Project\Advanced Data Mining\DocClustering\Clustering\bin\Debug\Domain.
 D:\Study Project\Advanced Data Mining\DocClustering\Clustering\bin\Debug\Domain.pdb
 D:\Study Project\Advanced Data Mining\DocClustering\Clustering\obj\Debug\Clustering.dll
 D:\Study Project\Advanced Data Mining\DocClustering\Clustering\obj\Debug\Clustering.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Clustering\bin\Debug\Clustering.dll
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Clustering\bin\Debug\Clustering.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Clustering\bin\Debug\Domain.dll
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Clustering\bin\Debug\Domain.pdb
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Clustering\obj\Debug\Clustering.csprojResolveAssemblyReference.cache
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Clustering\obj\Debug\Clustering.dll
+E:\GitHub\FIT\HK6_ADm\doc-clustering\Clustering\obj\Debug\Clustering.pdb
