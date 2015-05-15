@@ -55,7 +55,7 @@ namespace AppUI
                     break;
                 default:
                     //Clustering. OPTICS
-                    OPTICS optics = new OPTICS(ref data, 0.05f, 90);
+                    OPTICS optics = new OPTICS(ref data, 0.055f, 50);
                     break;
             }
             stopwatch.Stop();
