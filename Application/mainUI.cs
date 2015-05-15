@@ -35,14 +35,7 @@ namespace AppUI
         }
 
         private void btnExe_Click(object sender, EventArgs e)
-        {
-            M = Convert.ToInt32(txtNumClusters.Text);
-            // Preprocessing
-            taskName.Text = "Preprocessing...";
-            Preprocessing.VectorSpaceModel.extractFeatures(selectedFolder, M);
-            taskName.Text = "Preprocessing complete.";
-            MessageBox.Show("Preprocessing complete.");
-            
+        {                        
             // Load features         
             List<Item> data = loadFeature();
 
@@ -117,6 +110,16 @@ namespace AppUI
                     writer.WriteLine(data[i].TmpLabel + 1);
                 }
             }            
+        }
+
+        private void btnPrep_Click(object sender, EventArgs e)
+        {
+            M = Convert.ToInt32(txtNumClusters.Text);
+            // Preprocessing
+            taskName.Text = "Preprocessing...";
+            Preprocessing.VectorSpaceModel.extractFeatures(selectedFolder, M);
+            taskName.Text = "Preprocessing complete.";
+            MessageBox.Show("Preprocessing complete.");
         }
     }
 }

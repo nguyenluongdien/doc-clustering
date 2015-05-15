@@ -33,6 +33,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbError = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lbElapsed = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,7 +44,7 @@
             this.btnSelectFolder = new System.Windows.Forms.Button();
             this.fbdDataFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.taskName = new System.Windows.Forms.Label();
-            this.lbElapsed = new System.Windows.Forms.Label();
+            this.btnPrep = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -64,11 +65,11 @@
             // 
             // btnExe
             // 
-            this.btnExe.Location = new System.Drawing.Point(12, 204);
+            this.btnExe.Location = new System.Drawing.Point(106, 204);
             this.btnExe.Name = "btnExe";
-            this.btnExe.Size = new System.Drawing.Size(187, 23);
+            this.btnExe.Size = new System.Drawing.Size(93, 23);
             this.btnExe.TabIndex = 1;
-            this.btnExe.Text = "Execute";
+            this.btnExe.Text = "Clustering";
             this.btnExe.UseVisualStyleBackColor = true;
             this.btnExe.Click += new System.EventHandler(this.btnExe_Click);
             // 
@@ -101,6 +102,14 @@
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Error rate:";
+            // 
+            // lbElapsed
+            // 
+            this.lbElapsed.AutoSize = true;
+            this.lbElapsed.Location = new System.Drawing.Point(71, 25);
+            this.lbElapsed.Name = "lbElapsed";
+            this.lbElapsed.Size = new System.Drawing.Size(0, 13);
+            this.lbElapsed.TabIndex = 0;
             // 
             // label1
             // 
@@ -193,13 +202,15 @@
             this.taskName.TabIndex = 6;
             this.taskName.Text = "taskName";
             // 
-            // lbElapsed
+            // btnPrep
             // 
-            this.lbElapsed.AutoSize = true;
-            this.lbElapsed.Location = new System.Drawing.Point(71, 25);
-            this.lbElapsed.Name = "lbElapsed";
-            this.lbElapsed.Size = new System.Drawing.Size(0, 13);
-            this.lbElapsed.TabIndex = 0;
+            this.btnPrep.Location = new System.Drawing.Point(12, 204);
+            this.btnPrep.Name = "btnPrep";
+            this.btnPrep.Size = new System.Drawing.Size(88, 23);
+            this.btnPrep.TabIndex = 1;
+            this.btnPrep.Text = "Preprocessing";
+            this.btnPrep.UseVisualStyleBackColor = true;
+            this.btnPrep.Click += new System.EventHandler(this.btnPrep_Click);
             // 
             // Form1
             // 
@@ -211,6 +222,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnPrep);
             this.Controls.Add(this.btnExe);
             this.Name = "Form1";
             this.Text = "Text Clustering";
@@ -242,6 +254,7 @@
         private System.Windows.Forms.RichTextBox statInfo;
         private System.Windows.Forms.Label lbError;
         private System.Windows.Forms.Label lbElapsed;
+        private System.Windows.Forms.Button btnPrep;
     }
 }
 
