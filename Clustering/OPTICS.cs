@@ -13,7 +13,7 @@ namespace Clustering
         List<Object> setOfObject;
         float Eps;
         int MinPts;
-        int countLabel = 1;
+        int countLabel = 0;
 
         public OPTICS(ref List<Item> lstMatrix, float eps, int minPts)
         {
@@ -77,32 +77,37 @@ namespace Clustering
                 Object obj = setOfObject[i];
                 List<Object> lstNeighbor = obj.getNeighbor(matrixDistance, setOfObject, Eps);
 
-                // ExpandCluster(setOfObject, obj);
-                obj.process = true;
-                obj.setCoreDist(matrixDistance, Eps, MinPts);
-
-                if (obj.coreDist != 0)
+                if(obj.process == false)
                 {
-                    // Tạo Seed mới
-                    Seeds seeds = new Seeds();
-                    updateSeeds(obj.lstNeighbor, obj, seeds);
+                    obj.process = true;
+                    obj.setCoreDist(matrixDistance, Eps, MinPts);
 
-                    foreach (Object objNeighbor in seeds.LstSeeds)
+                    if (obj.coreDist != 0)
                     {
-                        List<Object> lstNeighborOfObj = objNeighbor.getNeighbor(matrixDistance, setOfObject, Eps);
-                        objNeighbor.process = true;
-                        if (objNeighbor.coreDist != 0.0)
+                        // Tạo Seed mới
+                        Seeds seeds = new Seeds();
+                        updateSeeds(obj.lstNeighbor, obj, seeds);
+
+                        foreach (Object objNeighbor in seeds.LstSeeds)
                         {
-                            updateSeeds(lstNeighborOfObj, objNeighbor, seeds);
+                            List<Object> lstNeighborOfObj = objNeighbor.getNeighbor(matrixDistance, setOfObject, Eps);
+                            objNeighbor.process = true;
+                            if (objNeighbor.coreDist != 0.0)
+                            {
+                                updateSeeds(lstNeighborOfObj, objNeighbor, seeds);
+                            }
+                        }
+                        if (seeds.LstSeeds.Count > 0)
+                        {
+                            
+                            foreach (Object objCluster in seeds.LstSeeds)
+                            {
+                                lstMatrix[objCluster.index].TmpLabel = countLabel;
+                            }
+
+                            countLabel++;
                         }
                     }
-
-                    foreach (Object objCluster in seeds.LstSeeds)
-                    {
-                        lstMatrix[objCluster.index].Label = countLabel;
-                    }
-                    if (seeds.LstSeeds.Count != 0)
-                        countLabel++;
                 }
             }
         }
@@ -114,7 +119,7 @@ namespace Clustering
             for(int i = 0; i < num; i++)
             {
                 Object obj = lstNeighbor[i];
-                if(!obj.process)
+                if(obj.process == false)
                 {
                     float dist = matrixDistance[centreObj.index, obj.index];
                     float tempCoreReach = dist > coreDist ? dist : coreDist;
